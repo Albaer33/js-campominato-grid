@@ -1,7 +1,7 @@
 document.getElementById('play').addEventListener('click', startGame);
 
 function startGame() {
-    // importa il value selezionato e assegna alla variabile globale gameMode la difficoltà
+    // importa il value selezionato e assegna alla variabile gameMode la difficoltà
     const gameMode = getSelectValue();
 
     // creare la griglia in base alla difficolta selezionata
