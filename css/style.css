@@ -6,6 +6,9 @@
 }
 
 /* COMMON */
+body {
+    font-family: arial;
+}
 .app-wrapper {
     width: 100%;
     height: 100vh;
@@ -13,13 +16,33 @@
 
 /* HEADER */
 header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     height: 100px;
+    padding: 0 30px;
+}
+.logo-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+h1 {
+    padding: 0 20px;
+}
+.option {
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+}
+.option > * {
+    padding: 0 20px;
 }
 
 /* MAIN */
 main {
-    height: calc(100% - 100px);
-    background-color: #001728;
+    height: calc(100% - 180px);
+    background-color: #7fffd4;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,9 +50,9 @@ main {
 
 /* Game grid */
 .game-grid {
-    width: 500px;
-    height: 500px;
-    border: 2px solid white;
+    width: 600px;
+    height: 600px;
+    border: 2px solid black;
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
@@ -38,11 +61,11 @@ main {
 .square {
     width: calc(100% / 8);
     height: calc(100% / 8);
-    border: 2px solid white;
+    border: 2px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: black;
 }
 .square span {
     display: none;
@@ -50,10 +73,11 @@ main {
 .square.active span {
     display: block;
 }
-
-.square.square--even {
-    background-color: green;
-}
-.square.square--odd {
-    background-color: red;
+/* FOOTER */
+footer {
+    width: 100%;
+    height: 80px;
+    line-height: 80px;
+    font-size: 20px;
+    padding-left: 40px;
 }
