@@ -5,16 +5,7 @@ function startGame() {
     const gameMode = getSelectValue();
 
     // creare la griglia in base alla difficolta selezionata
-    const numberOfSquares = 0;
-    if (gameMode === 'easy') {
-        numberOfSquares = 100;
-    }
-    else if (gameMode === 'medium') {
-        numberOfSquares = 81;
-    }
-    else if (gameMode === 'hard') {
-        numberOfSquares = 49;
-    }
+    const numberOfSquares = gameModeSquares(gameMode);
     let generatedNumbers = generateSquaresNumbers(numberOfSquares);
 
     // Per ogni numero nell'array, creo una cella e la appendo al grid container
@@ -22,7 +13,7 @@ function startGame() {
     mainGrid.innerHTML = '';
     for(let i = 0; i < generatedNumbers.length; i++) {
         const thisNumber = generatedNumbers[i];
-        const newGeneratedSquare = generateGridItem(thisNumber);
+        const newGeneratedSquare = generateGridItem(thisNumber, gameMode);
 
         // Attacco l'evento allo square
         newGeneratedSquare.addEventListener('click', handleSquareClick);
@@ -30,6 +21,7 @@ function startGame() {
         // Aggiungo l'elemento alla griglia
         mainGrid.appendChild(newGeneratedSquare);
     }
+    mainGrid.classList.add('active');
 }
 
 // FUNCTIONS
@@ -41,6 +33,19 @@ function getSelectValue()
     return selectedValue;
 }
 
+// assegna il numero dei quadrati in base alla difficoltà
+function gameModeSquares(str) {
+    if (str === 'easy') {
+        return 100;
+    }
+    else if (str === 'medium') {
+        return 81;
+    }
+    else if (str === 'hard') {
+        return 49;
+    }
+}
+
 // al click su un quadrato aggiungo active e il colore
 function handleSquareClick() {
     this.classList.add('active');
@@ -48,10 +53,21 @@ function handleSquareClick() {
     this.classList.add('square-active');
 }
 
-// Creare un elemento della griglia
-function generateGridItem(number) {
+// Creare un elemento della griglia con grandezza basata sulla difficoltà
+function generateGridItem(number, str) {
     const newSquare = document.createElement('div');
     newSquare.classList.add('square');
+
+    if (str === 'easy') {
+        newSquare.classList.add('square-easy');
+    }
+    else if (str === 'medium') {
+        newSquare.classList.add('square-medium');
+    }
+    else if (str === 'hard') {
+        newSquare.classList.add('square-hard');
+    }
+    
     newSquare.innerHTML = `<span>${number}</span>`; 
 
     return newSquare;

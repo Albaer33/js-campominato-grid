@@ -50,12 +50,16 @@ main {
 
 /* Game grid */
 .game-grid {
+    visibility: hidden;
     width: 600px;
     height: 600px;
     border: 2px solid black;
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
+}
+.game-grid.active {
+    visibility: visible;
 }
 
 .square {
