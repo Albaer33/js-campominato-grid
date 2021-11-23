@@ -21,6 +21,7 @@ function startGame() {
         // Aggiungo l'elemento alla griglia
         mainGrid.appendChild(newGeneratedSquare);
     }
+    // rendo la griglia pronta visibile dopo cliccato play
     mainGrid.classList.add('active');
 }
 
