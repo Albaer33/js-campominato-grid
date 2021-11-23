@@ -59,18 +59,32 @@ main {
 }
 
 .square {
-    width: calc(100% / 8);
-    height: calc(100% / 8);
     border: 2px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
     color: black;
 }
+.square-easy {
+    width: calc(100% / 10);
+    height: calc(100% / 10);
+}
+.square-medium {
+    width: calc(100% / 9);
+    height: calc(100% / 9);
+}
+.square-hard {
+    width: calc(100% / 7);
+    height: calc(100% / 7);
+}
+.square-active {
+    background-color: #6495ed;
+}
 .square span {
     display: none;
 }
 .square.active span {
+    color: white;
     display: block;
 }
 /* FOOTER */

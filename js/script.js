@@ -1,9 +1,20 @@
 document.getElementById('play').addEventListener('click', startGame);
 
 function startGame() {
-    // CREARE LA GRIGLIA CON GLI SQUARE
-    // Crearmi un array di numeri casuali e non ripetuti da 1 a 64
-    const numberOfSquares = 64;
+    // importa il value selezionato e assegna alla variabile globale gameMode la difficoltà
+    const gameMode = getSelectValue();
+
+    // creare la griglia in base alla difficolta selezionata
+    const numberOfSquares = 0;
+    if (gameMode === 'easy') {
+        numberOfSquares = 100;
+    }
+    else if (gameMode === 'medium') {
+        numberOfSquares = 81;
+    }
+    else if (gameMode === 'hard') {
+        numberOfSquares = 49;
+    }
     let generatedNumbers = generateSquaresNumbers(numberOfSquares);
 
     // Per ogni numero nell'array, creo una cella e la appendo al grid container
@@ -22,16 +33,19 @@ function startGame() {
 }
 
 // FUNCTIONS
+
+// importa la difficoltà selezionata
+function getSelectValue()
+{
+    let selectedValue = document.getElementById("difficulty").value;
+    return selectedValue;
+}
+
 // al click su un quadrato aggiungo active e il colore
 function handleSquareClick() {
     this.classList.add('active');
     const thisSquareNumber = parseInt( this.querySelector('span').textContent );
-
-    if(thisSquareNumber % 2 === 0) {
-        this.classList.add('square--even');
-    } else {
-        this.classList.add('square--odd');
-    }
+    this.classList.add('square-active');
 }
 
 // Creare un elemento della griglia
