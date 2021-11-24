@@ -84,12 +84,8 @@ main {
 .square-active {
     background-color: #6495ed;
 }
-.square span {
-    display: none;
-}
 .square.active span {
     color: white;
-    display: block;
 }
 /* FOOTER */
 footer {
